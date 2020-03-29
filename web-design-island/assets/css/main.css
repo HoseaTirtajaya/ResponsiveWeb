@@ -1,0 +1,254 @@
+/* Variable */
+:root {
+  --color-white: #fff;
+  --color-green-light: #bebe9c;
+  --color-green-dark: #bba665;
+  --color-green-darker: #60583f;
+  --color-green-gradient-start: rgba(97, 83, 58, 0.8);
+  --color-green-gradient-end: rgba(65, 58, 37, 0.8);
+  --color-black-gradient-start: rgba(54, 54, 54, 0);
+  --color-black-gradient-end: rgba(20, 20, 20, 0.5);
+}
+
+/* Normalization */
+* {
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+/* Font Style */
+/* font-family: 'EB Garamond', serif; */
+/* font-family: 'Lato', sans-serif; */
+
+body {
+  padding: 32px;
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: url("../img/background.png");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: "EB Garamond", serif;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: initial;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar a {
+  color: var(--color-white);
+}
+
+.navbar > a {
+  font-size: 32px;
+}
+
+.hamburger {
+  display: none;
+}
+
+.navbar-menu {
+  font-family: "Lato", sans-serif;
+}
+
+.navbar-menu a {
+  margin-right: 16px;
+}
+
+.navbar-menu a:last-child {
+  margin-right: 0;
+}
+
+/* Hero */
+.hero {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.hero-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  color: var(--color-green-light);
+}
+
+.hero-wrapper h1 {
+  font-size: 6.5em;
+  flex: 1;
+}
+
+.hero-wrapper p {
+  width: 500px;
+  font-size: 1.3em;
+  transform: translateY(-32px);
+}
+
+/* Card */
+.card {
+  width: 100%;
+  display: flex;
+}
+
+.card-item {
+  flex: 1;
+  padding-bottom: 0.4em;
+  border-bottom: 2px solid var(--color-green-gradient-start);
+  position: relative;
+  cursor: pointer;
+}
+
+.card-item::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  width: 0%;
+  height: 4px;
+  background-color: var(--color-green-dark);
+  transition: all 0.25s ease-in-out;
+}
+
+.card-item:hover::after {
+  width: 100%;
+}
+
+.card-item.active::after {
+  width: 100%;
+}
+
+.card-item p {
+  color: var(--color-green-light);
+  font-size: 1.6em;
+}
+
+.card-item p span {
+  opacity: 0.5;
+}
+
+/* Media Query */
+
+@media only screen and (max-width: 1280px) {
+  .hamburger {
+    display: flex !important;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 32px 32px 0 0;
+    cursor: pointer;
+    z-index: 999;
+  }
+
+  .hamburger span {
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-white);
+    position: relative;
+  }
+
+  .hamburger span::before,
+  .hamburger span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-white);
+  }
+
+  .hamburger span::before {
+    top: -10px;
+  }
+
+  .hamburger span::after {
+    top: 10px;
+  }
+
+  .hamburger.active span {
+    background-color: transparent;
+  }
+
+  .hamburger.active span::before,
+  .hamburger.active span::after {
+    top: 0;
+  }
+
+  .hamburger.active span::before {
+    transform: rotate(45deg);
+  }
+
+  .hamburger.active span::after {
+    transform: rotate(-45deg);
+  }
+
+  .navbar-menu {
+    position: fixed;
+    display: flex;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    z-index: 998;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    filter: unset !important;
+  }
+
+  .navbar-menu.active {
+    right: 0%;
+  }
+
+  .navbar-menu a {
+    margin: 24px 0;
+    font-size: 1.8em;
+    font-family: "EB Garamond", serif;
+  }
+
+  .hero-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-wrapper * {
+    text-align: center;
+  }
+
+  .hero-wrapper h1 {
+    margin-bottom: 0.5em;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .hero-wrapper h1 {
+    font-size: 3em;
+    margin-bottom: 1em;
+  }
+}
