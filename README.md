@@ -6,7 +6,7 @@ Landing Page
 
 Loading Page
 
-![Loading Page](https://raw.githubusercontent.com/HoseaTirtajaya/ResponsiveWeb/web-design-island/master/Preview/Loading%20Screen.png)
+![Loading Page](https://github.com/HoseaTirtajaya/ResponsiveWeb/blob/master/web-design-island/Preview/Loading%20Screen.png?raw=true)
 
 Unsupported Device Screen
 
